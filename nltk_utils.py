@@ -2,10 +2,6 @@
 import nltk
 import numpy as np
 
-import torch
-import torch.nn as nn
-from torch.utils.data import Dataset, DataLoader
-
 # Download nltk package for make tokenize
 nltk.download("punkt")
 
