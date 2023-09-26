@@ -15,11 +15,18 @@ for intent in intents["intents"]:
     tags.append(tag)
     
     # looping the pattern elements
-    for pattern in intents["patterns"]:
+    for pattern in intent["patterns"]:
         # tokenize the patterns
         w = tokenize(pattern)
         all_words.extend(w)
         
         xy.append((w, tag))
     
-    
+# Applying lower and stem method
+ignore_words = ["?", "!", ".", ",", ":"]
+all_words = [stem(w) for w in all_words if w not in ignore_words]
+
+# Remove duplicate elements using sets
+all_words = sorted(set(all_words))
+tags = sorted(set(tags))
+
